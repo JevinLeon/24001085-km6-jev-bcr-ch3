@@ -43,7 +43,7 @@ class Car {
     return `
 
     <img
-      src="${this.image}"
+      src="../images/${this.image}"
       class="img-fluid car-item-img object-fit-cover mb-3"
       alt="car"
     />

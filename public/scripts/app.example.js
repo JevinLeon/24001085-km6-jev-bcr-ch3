@@ -36,6 +36,7 @@ class App {
 
   async load() {
     const cars = await Binar.listCars();
+    console.log(cars);
     Car.init(cars);
   }
 
