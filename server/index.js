@@ -25,7 +25,24 @@ app.post("/cars", router);
 app.put("/cars/:id", router);
 
 // DELETE /cars/:id
-
 app.delete("/cars/:id", router);
+
+app.use((err, req, res, next) => {
+  let statusCode = 500;
+
+  let message = "Internal Server Error";
+
+  if (err.statusCode) {
+    statusCode = err.statusCode;
+  }
+  if (err.message) {
+    message = err.message;
+  }
+
+  res.status(statusCode).json({
+    data: null,
+    message,
+  });
+});
 
 app.listen(3000);

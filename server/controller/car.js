@@ -8,15 +8,15 @@ exports.getCars = (req, res) => {
   });
 };
 
-exports.getCar = (req, res) => {
+exports.getCar = (req, res, next) => {
   const id = req?.params?.id;
 
   const data = carServices.getCar(id);
 
   if (data.length === 0) {
-    return res.status(404).json({
+    return next({
+      statusCode: 404,
       message: `Student with id ${id} is not found`,
-      data: null,
     });
   }
 
