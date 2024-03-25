@@ -23,18 +23,10 @@ class Binar {
 
   static async listCars(filterer) {
     let cars;
-    let cachedCarsString = localStorage.getItem("CARS");
 
-    if (!!cachedCarsString) {
-      const cacheCars = JSON.parse(cachedCarsString);
-      cars = this.populateCars(cacheCars);
-    } else {
-      const response = await fetch("http://localhost:3000/cars");
-      const { data } = await response.json();
-      cars = this.populateCars(data);
-
-      localStorage.setItem("CARS", JSON.stringify(cars));
-    }
+    const response = await fetch("http://localhost:3000/cars");
+    const { data } = await response.json();
+    cars = this.populateCars(data);
 
     if (filterer instanceof Function) return cars.filter(filterer);
 

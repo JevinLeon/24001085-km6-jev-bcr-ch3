@@ -211,6 +211,7 @@ a:hover {
 
 .width-75 {
   max-width: 80vw;
+  height: 100%;
 }
 
 .car-item-img {

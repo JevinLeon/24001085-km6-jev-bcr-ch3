@@ -25,12 +25,10 @@ class App {
 
   run = () => {
     Car.list.forEach((car) => {
-      if (car.available) {
-        const node = document.createElement("div");
-        node.classList.add("car-card");
-        node.innerHTML = car.render();
-        this.carContainer.appendChild(node);
-      }
+      const node = document.createElement("div");
+      node.classList.add("car-card");
+      node.innerHTML = car.render();
+      this.carContainer.appendChild(node);
     });
   };
 

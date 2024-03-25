@@ -41,7 +41,6 @@ class Car {
 
   render() {
     return `
-
     <img
       src="../images/${this.image}"
       class="img-fluid car-item-img object-fit-cover mb-3"
